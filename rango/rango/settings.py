@@ -55,7 +55,7 @@ ROOT_URLCONF = 'rango.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['/Users/becheru/Projects/Rango/rango/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
