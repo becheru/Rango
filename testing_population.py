@@ -29,7 +29,8 @@ def populate():
             }
 
     for cat, cat_data in cats.items():
-        for p in cat_data["pages"]:
-            print(p["title"],p["url"])
+        print(cat, data_data)
+        #for p in cat_data["pages"]:
+        #    print(p["title"],p["url"])
 
 populate()
