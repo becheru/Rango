@@ -6,9 +6,10 @@
         </head>
         <body>
                 <h1>Tango says ...</h1>
-                <div>These are the categories</div>
-
                 <div>
+                        <h2>
+                                The most liked categories are:
+                        </h2>
                         {% if categories %}
                                 <ul>
                                         {% for category in categories %}
@@ -41,7 +42,7 @@
                                 </ul>
                         {% else %}
                                 <strong>
-                                        There are no other_pages
+                                        There are no pages
                                 </strong>
                         {% endif %}
                 </div>
