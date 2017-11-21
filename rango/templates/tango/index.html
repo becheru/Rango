@@ -4,26 +4,33 @@
         <head>
                 <title>Tango</title>
         </head>
-
         <body>
                 <h1>Tango says ...</h1>
                 <div>These are the categories</div>
 
                 <div>
                         {% if categories %}
-                        <ul>
-                                {% for category in categories %}
-                                        <li>{{category.name}}</li>
-                                {% endfor %}
-                        </ul>
+                                <ul>
+                                        {% for category in categories %}
+                                                <li>
+                                                        <a href="/tango/category/{{category.slug}}">
+                                                                {{category.name}}
+                                                        </a>
+                                                </li>
+                                        {% endfor %}
+                                </ul>
                         {% else %}
-                                <strong>There are no categories</strong>
+                                <strong>
+                                        There are no categories
+                                </strong>
                         {% endif %}
                 </div>
-
                 <div>
-                        <a href="/tango/about/">About page</a><br/>
+                        <a href="/tango/about/">
+                                About page
+                        </a>
+                        <br/>
                         <img src="{% static "images/django.jpg" %}" alt="Picture of Django" />
-                <div>
+                </div>
         </body>
 </html>
