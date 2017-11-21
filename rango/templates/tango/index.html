@@ -26,6 +26,26 @@
                         {% endif %}
                 </div>
                 <div>
+                        <h2>
+                                The most visited pages are:
+                        </h2>
+                        {% if most_visited_pages %}
+                                <ul>
+                                        {% for page in most_visited_pages %}
+                                                <li>
+                                                        <a href="{{page.url}}">
+                                                                {{page.title}}
+                                                        </a>
+                                                </li>
+                                        {% endfor %}
+                                </ul>
+                        {% else %}
+                                <strong>
+                                        There are no other_pages
+                                </strong>
+                        {% endif %}
+                </div>
+                <div>
                         <a href="/tango/about/">
                                 About page
                         </a>

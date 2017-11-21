@@ -8,7 +8,8 @@ def index(request):
     #return render(request, "tango/index.html", context = context_dict)
     #return HttpResponse("""Rango says hey there partner. </br> Link to the <a href="http://localhost:8000/tango/about">about</a> page """)
     category_list = Category.objects.order_by('-likes')[:5]
-    context_dict = { "categories":category_list }
+    page_list = Page.objects.order_by("-views")[:5]
+    context_dict = { "categories":category_list,"most_visited_pages":page_list}
     return render(request, "tango/index.html", context_dict)
 
 def about(request):
