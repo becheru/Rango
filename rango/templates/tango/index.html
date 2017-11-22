@@ -14,7 +14,7 @@
                                 <ul>
                                         {% for category in categories %}
                                                 <li>
-                                                        <a href="/tango/category/{{category.slug}}">
+                                                        <a href="{% url 'tango:show_category' category.slug %}">
                                                                 {{category.name}}
                                                         </a>
                                                 </li>
