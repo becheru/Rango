@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from tango.models import Category
 from tango.models import Page
+from tango.forms import CategoryForm
 
 def index(request):
     #context_dict = {"boldmessage" : "This is a message from Alex Becheru"}
@@ -28,3 +29,17 @@ def show_category(request, category_name_slug):
         context_dict['pages'] = None
         context_dict['category'] = None
     return render(request, 'tango/category.html', context_dict)
+
+def add_category(request):
+    form = CategoryForm
+    print("Entered category view")
+    print(request.method)
+    if request.method == 'POST':
+        form = CategoryForm(request.POST)
+        if form.is_valid():
+            cat = form.save(commit = True)
+            print(cat, cat.slug, "Category Added")
+            return index(request)
+        else:
+            print(form.errors)
+    return render(request, 'tango/add_category.html', {'form':form})
