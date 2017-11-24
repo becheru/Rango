@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+
+<html>
+        <head>
+                <title>
+                        Tango -
+                        {% block title_block %}
+                                Palying with Django
+                        {% endblock %}
+                </title>
+        </head>
+        <body>
+                <div>
+                        {% block body_block %}
+                                This is the default body content, if not overriden.
+                        {% endblock %}
+                </div>
+                <hr />
+                <div>
+                        <ul>
+                                <li>
+                                        <a href = "{% url 'tango:add_category' %}">
+                                                Add new category
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href = "{% url 'tango:about' %}">
+                                                About
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href = "{% url 'tango:index' %}">
+                                                Index / Home Page
+                                        </a>
+                                </li>
+                        </ul>
+                </div>
+        </body>
+</html>
