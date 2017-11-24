@@ -1,5 +1,7 @@
 from django import forms
 from tango.models import Page, Category
+from tango.models import User
+from tango.models import UserProfile
 
 class CategoryForm(forms.ModelForm):
     name = forms.CharField(max_length = 128, help_text = "Please enter the category name")
@@ -27,3 +29,15 @@ class PageForm(forms.ModelForm):
     class Meta:
         model = Page
         fields = ('title', 'url', 'views')
+
+class UserForm(forms.ModelForm):
+    password = forms.CharField(widget = forms.PasswordInput())
+
+    class Meta:
+        model = User
+        fields = ("username", "email", "password")
+
+class UserProfileForm(forms.ModelForm):
+    class Meta:
+        model = UserProfile
+        fields = ('website', 'picture')

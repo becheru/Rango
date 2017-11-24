@@ -1,0 +1,33 @@
+{% extends "tango/base.html" %}
+{% load staticfiles %}
+
+{% block title_block %}
+        Register
+{% endblock %}
+
+{% block body_block %}
+        <h1>
+                Register with Tango
+        </h1>
+        {% if registered %}
+                Tango says:
+                <strong>
+                        Thank you for registering.
+                </strong>
+                <a href = "{% url 'index' %}">
+                        Return to home page
+                </a>
+        {% else %}
+                Tango says:
+                <strong>
+                        Register here.
+                </strong>
+                <br />
+                <form id="user_form" method="post" action = "{% url 'tango:register' %}" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{ user_form.as_p }}
+                        {{ profile_form.as_p }}
+                        <input type="submit" name="submit" value="Register" />
+                </form>
+        {% endif %}
+{% endblock %}
