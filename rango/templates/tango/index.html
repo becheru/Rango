@@ -6,7 +6,13 @@
 {% endblock %}
 
 {% block body_block %}
-        <h1>Tango says ...</h1>
+        <h3>
+                {% if user.is_autenticated %}
+                        Hey there {{user.username}}.
+                {% else %}
+                        Hey there partner.
+                {% endif %}
+        </h3>
         <div>
                 <h2>
                         The most liked categories are:

@@ -7,7 +7,7 @@
                 <title>
                         Tango -
                         {% block title_block %}
-                                Palying with Django
+                                Playing with Django
                         {% endblock %}
                 </title>
         </head>
@@ -30,13 +30,18 @@
                 <div>
                         <ul>
                                 <li>
-                                        <a href = "{% url 'tango:add_category' %}">
-                                                Add new category
+                                        <a href = "{% url 'tango:login' %}">
+                                                Login
                                         </a>
                                 </li>
                                 <li>
                                         <a href = "{% url 'tango:register' %}">
                                                 Sign up
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href = "{% url 'tango:add_category' %}">
+                                                Add new category
                                         </a>
                                 </li>
                                 <li>
