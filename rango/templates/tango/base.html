@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 {% load staticfiles %}
+{% load tango_template_tags %}
 
 <html>
         <head>
@@ -11,7 +12,16 @@
                 </title>
         </head>
         <body>
-                <div>
+                <div style="display:inline-block">
+                        {% block side_bar_block %}
+                                <h3>
+                                        Categories
+                                </h3>
+                                {% get_category_list category %}
+                        {% endblock %}
+                </div>
+                <vr/>
+                <div style="display: inline-block">
                         {% block body_block %}
                                 This is the default body content, if not overriden.
                         {% endblock %}
