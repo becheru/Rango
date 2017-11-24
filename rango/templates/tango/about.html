@@ -1,19 +1,13 @@
-<!DOCTYPE html>
-<html>
-        <head>
-                <title>About</title>
-        </head>
+{% extends "tango/base.html" %}
+{% load staticfiles}
 
-        <body>
-                <h1>About this site</h1>
-                <div>
-                        hey there partner! <br/>
-                        <strong>{{var1}}</strong><br/>
-                        <strong>{{var2}}</strong><br/>
-                </div>
-                <div>
-                        <a href="/tango/">Home page</a><br/>
-                        <img src="{{MEDIA_URL}}django.jpg" alt="Picture of Django" />
-                <div>
-        </body>
-</html>
+{% block title_block %}
+        About
+{% endblock %}
+
+{% block body_block %}
+        <h1>
+                Learning Django Web-Site
+        </h1>
+        <img src="{{MEDIA_URL}}django.jpg" alt="Picture of Django" />
+{% endblock %}

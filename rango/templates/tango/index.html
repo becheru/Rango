@@ -1,61 +1,50 @@
-<!DOCTYPE html>
+{% extends "tango/base.html" %}
 {% load staticfiles %}
-<html>
-        <head>
-                <title>Tango</title>
-        </head>
-        <body>
-                <h1>Tango says ...</h1>
-                <div>
-                        <h2>
-                                The most liked categories are:
-                        </h2>
-                        {% if categories %}
-                                <ul>
-                                        {% for category in categories %}
-                                                <li>
-                                                        <a href="{% url 'tango:show_category' category.slug %}">
-                                                                {{category.name}}
-                                                        </a>
-                                                </li>
-                                        {% endfor %}
-                                </ul>
-                        {% else %}
-                                <strong>
-                                        There are no categories
-                                </strong>
-                        {% endif %}
-                </div>
-                <div>
-                        <a  href = "/tango/add_category"> Add a new category </a>
-                        <br />
-                </div>
-                <div>
-                        <h2>
-                                The most visited pages are:
-                        </h2>
-                        {% if most_visited_pages %}
-                                <ul>
-                                        {% for page in most_visited_pages %}
-                                                <li>
-                                                        <a href="{{page.url}}">
-                                                                {{page.title}}
-                                                        </a>
-                                                </li>
-                                        {% endfor %}
-                                </ul>
-                        {% else %}
-                                <strong>
-                                        There are no pages
-                                </strong>
-                        {% endif %}
-                </div>
-                <div>
-                        <a href="{% url 'tango:about'  %}">
-                                About page
-                        </a>
-                        <br/>
-                        <img src="{% static "images/django.jpg" %}" alt="Picture of Django" />
-                </div>
-        </body>
-</html>
+
+{% block title_block %}
+        Index/ Home Page
+{% endblock %}
+
+{% block body_block %}
+        <h1>Tango says ...</h1>
+        <div>
+                <h2>
+                        The most liked categories are:
+                </h2>
+                {% if categories %}
+                        <ul>
+                                {% for category in categories %}
+                                        <li>
+                                                <a href="{% url 'tango:show_category' category.slug %}">
+                                                        {{category.name}}
+                                                </a>
+                                        </li>
+                                {% endfor %}
+                        </ul>
+                {% else %}
+                        <strong>
+                                There are no categories
+                        </strong>
+                {% endif %}
+        </div>
+        <div>
+                <h2>
+                        The most visited pages are:
+                </h2>
+                {% if most_visited_pages %}
+                        <ul>
+                                {% for page in most_visited_pages %}
+                                        <li>
+                                                <a href="{{page.url}}">
+                                                        {{page.title}}
+                                                </a>
+                                        </li>
+                                {% endfor %}
+                        </ul>
+                {% else %}
+                        <strong>
+                                There are no pages
+                        </strong>
+                {% endif %}
+        </div>
+{% endblock %}

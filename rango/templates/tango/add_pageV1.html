@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+        <head>
+                Tango
+        </head>
+        <body>
+                <h1>
+                        Add a page to {{category.name}}
+                </h1>
+                <div>
+                        {% if category %}
+                                <form id="page_form" method = 'POST'
+                                        action ="tango/category/{{ category.slug }}/add_page/">
+                                        {% csrf_token %}
+                                        {% for hidden in form.hidden_fields %}
+                                                {{hidden}}
+                                        {% endfor %}
+                                        {% for visible in form.visible_fields %}
+                                                {{visible.errors}}
+                                                {{visible.help_text}}
+                                                {{visible}}
+                                        {% endfor %}
+                                        <input type = "submit" name = "submit" value =
+                                                "Add Page" />
+                                </form>
+                        {% else %}
+                                <strong>
+                                        The specified category does not does not exist
+                                </strong
+                        {% endif %}
+                </div>
+        </body>
+</html>
