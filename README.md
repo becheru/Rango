@@ -1,6 +1,6 @@
 # Rango
 ___
-Learning Django though the book [Tango with Django](http://www.tangowithdjango.com/)
+Learning Django through the book [Tango with Django](http://www.tangowithdjango.com/)
 
 use `localhost:8000` to see the page on the local machine
 
